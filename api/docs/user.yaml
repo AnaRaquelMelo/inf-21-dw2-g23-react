@@ -1,0 +1,12 @@
+paths:
+  /api/users/:
+    get:
+      tags:
+        - User
+      summary: Get All Users
+      security: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message

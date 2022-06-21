@@ -1,0 +1,112 @@
+paths:
+  /api/atores/:
+    get:
+      tags:
+        - Ator
+      summary: Get All Atores
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                artistic_name:
+                  type: string
+                birth_date:
+                  type: string
+      tags:
+        - Ator
+      summary: Insere Ator
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+  /api/atores/{atorId}:
+    get:
+      parameters:
+        - in: path
+          name: atorId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Ator
+      summary: Get Ator by id
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    put:
+      parameters:
+        - in: path
+          name: atorId
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                artistic_name:
+                  type: string
+                birth_date:
+                  type: string
+      tags:
+        - Ator
+      summary: Atualiza Ator
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    delete:
+      parameters:
+        - in: path
+          name: atorId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Ator
+      summary: Delete Ator
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required

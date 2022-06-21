@@ -1,0 +1,46 @@
+paths:
+  /api/filme-ator:
+    post:
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filmeId:
+                    type: integer
+                  atorId:
+                    type: integer                  
+        tags:
+          - Filme/Ator
+        summary: Insere Filme-Ator
+        security:
+          - basicAuth: []
+        produces:
+          - text/plain
+        responses:
+          200:
+            description: Success Message
+          401:
+            description: Basic Authentication required
+  /api/filmes/{filmeId}/atores:
+    get:
+      parameters:
+        - in: path
+          name: filmeId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Filme/Ator
+      summary: Get Ator by Filme
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required

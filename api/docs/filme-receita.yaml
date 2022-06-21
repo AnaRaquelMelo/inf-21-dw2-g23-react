@@ -1,0 +1,21 @@
+paths:
+  /api/filmes/{filmeId}/receitas:
+    get:
+      parameters:
+        - in: path
+          name: filmeId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Filme/Receita
+      summary: Get Receitas by Filme
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required

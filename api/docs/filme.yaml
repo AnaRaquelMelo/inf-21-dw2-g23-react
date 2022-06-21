@@ -1,0 +1,123 @@
+paths:
+  /api/filmes/:
+    get:
+      tags:
+        - Filme
+      summary: Get All Filmes
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                release_year:
+                  type: integer
+                language:
+                  type: string
+                lenght:
+                  type: integer
+                rating:
+                  type: number
+                  format: float
+      tags:
+        - Filme
+      summary: Insere um filme
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+  /api/filmes/{filmeId}:
+    get:
+      parameters:
+        - in: path
+          name: filmeId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Filme
+      summary: Get filme by id
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    put:
+      parameters:
+        - in: path
+          name: filmeId
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                release_year:
+                  type: integer
+                language:
+                  type: string
+                lenght:
+                  type: integer
+                rating:
+                  type: number
+                  format: float
+      tags:
+        - Filme
+      summary: Atualiza filme
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    delete:
+      parameters:
+        - in: path
+          name: filmeId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Filme
+      summary: Delete filme
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+  

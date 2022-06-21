@@ -1,0 +1,112 @@
+paths:
+  /api/receitas/:
+    get:
+      tags:
+        - Receita
+      summary: Get All Receitas
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pais:
+                  type: string
+                valor:
+                  type: integer
+                filmeId:
+                  type: integer                
+      tags:
+        - Receita
+      summary: Insere um Receita
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+  /api/Receitas/{receitaId}:
+    get:
+      parameters:
+        - in: path
+          name: receitaId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Receita
+      summary: Get Receita by id
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    put:
+      parameters:
+        - in: path
+          name: receitaId
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pais:
+                  type: string
+                valor:
+                  type: integer
+                filmeId:
+                  type: integer
+      tags:
+        - Receita
+      summary: Atualiza Receita
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
+    delete:
+      parameters:
+        - in: path
+          name: receitaId
+          schema:
+            type: integer
+          required: true
+      tags:
+        - Receita
+      summary: Delete Receita
+      security:
+        - basicAuth: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Success Message
+        401:
+          description: Basic Authentication required
